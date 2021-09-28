@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.leituraarquivos.service.constants.WorkerConstants
+import com.example.leituraarquivos.service.util.WorkerConstants
 import com.example.leituraarquivos.service.listeners.WorkerListener
 
 import com.example.leituraarquivos.view.WorkerFormActivity
@@ -53,22 +53,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         observe()
         listeners()
-        mViewModel.load()
     }
 
     override fun onResume() {
         super.onResume()
         mAdapter.attachListener(mListener)
         mViewModel.load()
+        mViewModel.atualizaArquivo()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mViewModel.clearDisposable()
     }
 
     private fun listeners() {
         mViewModel.validate.observe(this, Observer {
             if (it) {
-                Toast.makeText(this, "Deu certo Bro", Toast.LENGTH_SHORT).show()
                 mViewModel.load()
             } else {
-                Toast.makeText(this, "Deu baum naum /:", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Falha ao Importar Cadastros", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -115,7 +119,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         } else {
-            Toast.makeText(this, "Deu RUIMZÃO bro", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Falha ao Selecionar Arquivo", Toast.LENGTH_SHORT).show()
         }
 
     }

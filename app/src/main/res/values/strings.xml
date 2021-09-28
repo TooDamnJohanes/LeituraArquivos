@@ -9,4 +9,18 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="operadores">Operadores</string>
+    <string name="lista_de_operadores">Lista de Operadores</string>
+    <string name="importar_cadastros">IMPORTAR CADASTROS</string>
+    <string name="formulario_operador">FORMULÁRIO OPERADOR</string>
+    <string name="salvar">SALVAR</string>
+    <string name="atualizar">Atualizar Operador</string>
+    <string name="tipo_do_operador">Tipo do Operador - M ou O</string>
+    <string name="nome">Nome</string>
+    <string name="nome_do_operador">Nome do Operador</string>
+    <string name="codigo_do_operador">Código do Operador</string>
+    <string name="cadastrar_operador">Cadastrar Operador</string>
+    <string name="campo_reservado">Campo Reservado</string>
 </resources>

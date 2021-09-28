@@ -6,76 +6,156 @@
     android:layout_height="match_parent"
     tools:context=".view.WorkerFormActivity">
 
-    <TextView
-        android:id="@+id/form_text_view_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:text="SADBOY EDIT FORM"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/worker_row_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <View
-        android:id="@+id/form_view_divider_title"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_margin="10dp"
-        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/form_text_view_title"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_margin="4dp">
 
-    <EditText
-        android:id="@+id/form_edit_text_codigo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/form_view_divider_title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="10dp"
-        android:inputType="number"
-        android:maxLength="12"
-        android:hint="Código do Operador"/>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/row_card_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/teal_200"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/form_edit_text_nome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/form_edit_text_codigo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="10dp"
-        android:inputType="textPersonName"
-        android:hint="Nome"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
-    <EditText
-        android:id="@+id/form_edit_text_tipo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/form_edit_text_nome"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="10dp"
-        android:inputType="text"
-        android:maxLength="1"
-        android:hint="Tipo do Operador"/>
+                <ImageView
+                    android:id="@+id/image_worker"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_worker"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="15dp"
+                    android:layout_marginTop="5dp" />
 
-    <Button
-        android:id="@+id/form_button_save_files"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="15dp"
-        android:text="SALVAR"/>
+                <EditText
+                    android:id="@+id/edit_cod_operador"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:hint="@string/codigo_do_operador"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/image_worker"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edit_nome_operador"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:inputType="textPersonName"
+                    android:maxLength="100"
+                    android:hint="@string/nome_do_operador"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/image_worker"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_cod_operador" />
+
+                <EditText
+                    android:id="@+id/edit_tipo_operador"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:inputType="text"
+                    android:maxLength="1"
+                    android:hint="@string/tipo_do_operador"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/image_worker"
+                    app:layout_constraintTop_toBottomOf="@id/edit_nome_operador" />
+
+                <EditText
+                    android:id="@+id/edit_reservado1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:inputType="text"
+                    android:hint="@string/campo_reservado"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/image_worker"
+                    app:layout_constraintTop_toBottomOf="@id/edit_tipo_operador" />
+
+                <EditText
+                    android:id="@+id/edit_reservado2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:inputType="text"
+                    android:maxLength="1"
+                    android:hint="@string/campo_reservado"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/image_worker"
+                    app:layout_constraintTop_toBottomOf="@id/edit_reservado1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/form_button_save_files"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:fontFamily="@font/roboto_bold"
+            android:backgroundTint="@color/teal_200"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="15dp"
+            android:text="@string/salvar"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

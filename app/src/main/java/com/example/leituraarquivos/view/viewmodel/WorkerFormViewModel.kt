@@ -55,41 +55,6 @@ class WorkerFormViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    private val saveObserver: CompletableObserver
-        get() =
-            object : CompletableObserver {
-                override fun onSubscribe(d: Disposable) {
-                    println("Teste")
-                }
-
-                override fun onComplete() {
-                    mValidate.value = true
-                }
-
-                override fun onError(e: Throwable) {
-                    mValidate.value = false
-                }
-
-            }
-
-    private val updateObserver: CompletableObserver
-        get() =
-            object : CompletableObserver {
-                override fun onSubscribe(d: Disposable) {
-                    println("Teste")
-                }
-
-                override fun onComplete() {
-                    mValidate.value = true
-                }
-
-                override fun onError(e: Throwable) {
-                    mValidate.value = false
-                }
-
-            }
-
-
     fun loadOne(codFuncionario: Long) {
         val disposable = mRepository.get(codFuncionario).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -114,5 +79,38 @@ class WorkerFormViewModel(application: Application) : AndroidViewModel(applicati
 
             }
 
+    private val saveObserver: CompletableObserver
+        get() =
+            object : CompletableObserver {
+                override fun onSubscribe(d: Disposable) {
+                    println("Salvando o Operador Cadastrado")
+                }
 
+                override fun onComplete() {
+                    mValidate.value = true
+                }
+
+                override fun onError(e: Throwable) {
+                    mValidate.value = false
+                }
+
+            }
+
+    private val updateObserver: CompletableObserver
+        get() =
+            object : CompletableObserver {
+                override fun onSubscribe(d: Disposable) {
+                    mCompositeDisposable.add(d)
+                    println("Pegando o Operador Selecionado")
+                }
+
+                override fun onComplete() {
+                    mValidate.value = true
+                }
+
+                override fun onError(e: Throwable) {
+                    mValidate.value = false
+                }
+
+            }
 }

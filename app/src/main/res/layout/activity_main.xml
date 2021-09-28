@@ -8,38 +8,39 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/main_text_view_title"
-        android:layout_width="wrap_content"
+        android:id="@+id/fragment_all_workers_tile"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="@string/lista_de_operadores"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="C_FUNC Reader SadBoy Version"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/main_view_divider_title"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_margin="10dp"
-        android:background="@color/black"
+        android:background="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_text_view_title"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_all_workers_tile"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recyclerView_c_func"
         android:layout_width="0dp"
-        android:layout_height="520dp"
+        android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_view_divider_title"
+        app:layout_constraintBottom_toTopOf="@+id/main_view_divider_recycler"
         android:layout_margin="20dp"/>
 
     <View
@@ -47,8 +48,8 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_margin="10dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/main_button_import_files"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_recyclerView_c_func"
@@ -58,21 +59,26 @@
         android:id="@+id/main_button_import_files"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/main_view_divider_recycler"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@+id/main_button_input_files"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintRight_toLeftOf="@+id/main_button_input_files"
-        android:layout_marginTop="15dp"
-        android:text="IMPORT SADBOYS"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/importar_cadastros"/>
 
     <Button
         android:id="@+id/main_button_input_files"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@+id/main_view_divider_recycler"
         app:layout_constraintLeft_toRightOf="@+id/main_button_import_files"
         app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="15dp"
-        android:text="CADASTO SADBOY"/>
+        android:text="@string/cadastrar_operador"/>
 
 
 
